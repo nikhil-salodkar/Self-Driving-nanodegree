@@ -100,3 +100,35 @@ My final model consisted of the following layers:
 | Softmax				| output 43(number of classes)       									|
 
 While finalizing the architecture, good additions to the architectures are the inclusions of dropout layers, Adding the dropout layers helped in reducing the overfitting which was happening without adding them. Also, two different dropout values were used, much less dropout(0.1) for convolutional layers and higher dropout (0.5) for fully connected layers. The intuition behind this is we need the model to learn as much pattern as possible using Convolutional layers and their filter but more generalize the fully connected layers with higher dropout because the spacial information is lost when we convert the convolutions to dense layers.
+
+#### 3. Describe how you trained your model. The discussion can include the type of optimizer, the batch size, number of epochs and any hyperparameters such as learning rate.
+
+To train the model I used a learning rate of 0.001. Batch size of 128. I also tried using higher batch size such as 256, but the validation accuracy was coming lower using it. 128 worked better then batch size of 64 as well.
+I finalized with epochs of 30. Tried with higher epochs but the accuracy was not increasing and was remaining the same or even decreasing a little.
+
+#### 4. Describe the approach taken for finding a solution and getting the validation set accuracy to be at least 0.93. Include in the discussion the results on the training, validation and test sets and where in the code these were calculated. Your approach may have been an iterative process, in which case, outline the steps you took to get to the final solution and why you chose those steps. Perhaps your solution involved an already well known implementation or architecture. In this case, discuss why you think the architecture is suitable for the current problem.
+
+The approach and important points for finalizing on the final architecture and training and validating the models are as follows.
+
+- First of all normalizing the images turned out to be important for increasing the accuracy by 5 to 6 percent.
+- Second application of dropout helped in mitigating the problem of overfitting and helped in increase in val accuracy by approx 2 percent
+- Third from implementation perspective, had to take care that the validation script is made in such a way that during evaluation the dropout values become 1.0 because during evaluation the dropout feature should not be used.
+
+My final model results were:
+* training set accuracy of 99.7%
+* validation set accuracy of 96.1%
+* test set accuracy of 94.2%
+
+I did not even try out with training using only grayscale images as while looking at the images it looked like colour could play an important role as a feature.
+Also, after training and looking at training accuracy, it was clear that the even though the model is very small (only 2 convolutional layer) the train accuracy was easily going up to 99%. So, there was no need to simplify the features by converting to grayscale as the model was very well equiped to handle the current dataset size.
+
+Tried with lower and higher learning rates like 0.01 and 0.0001 but the loss was not decreasing as required.
+
+The validation accuracy of 96% and test accuracy of 94% is very high considering the number of classes are 43. So, the model is able to generalize well to the test data. However, for real world data it probably won't perform that well as in real world images, the variation in images could be much different that is not even specified in even training data. Data Augmentation would help in training and probably we would need to preprocess the real world images and convert them to how they look like in training images for the model to work with similar amount of accuracy.
+
+### Test a Model on New Images
+
+#### 1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
+
+Here are five German traffic signs that I found on the web:
+
