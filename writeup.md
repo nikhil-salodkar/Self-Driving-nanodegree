@@ -18,6 +18,8 @@ The goals / steps of this project are the following:
 [image1]: ./examples/train_distribution.png "Visualization1"
 [image_valid]: ./examples/validation_distribution.png "Visualization2"
 [image_test]: ./examples/test_distribution.png "Visualization3"
+[internet_image1]: ./examples/Internet_images1.png "Internet1"
+[internet_image2]: ./examples/Internet_image2.png "Internet2"
 [image2]: ./examples/grayscale.jpg "Grayscaling"
 [image3]: ./examples/random_noise.jpg "Random Noise"
 [image4]: ./examples/placeholder.png "Traffic Sign 1"
@@ -132,3 +134,37 @@ The validation accuracy of 96% and test accuracy of 94% is very high considering
 
 Here are five German traffic signs that I found on the web:
 
+![internet_image1][internet_image1]
+
+![internet_image2][internet_image2]
+
+First of all, it was difficult and time consuming task to find appropriate german traffic sign images on the Internet which were not copyrighted or did not contain a label or stamp over the image.
+
+If you observe in the Jupyter notebook where I have also displayed the updated resolution (32X32) of the images, the "train" sign and "pedestrian and cyclist" sign are difficult or impossible to recognise even with our eyes.
+
+#### 2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
+
+Here are the results of the prediction:
+
+| Image			        |     Prediction	        					| 
+|:---------------------:|:---------------------------------------------:| 
+| Road work      		| Road work  									| 
+| Stop sign     			| Stop sign										|
+| pedestrian					| Keep right											|
+| train	      		| slippery road					 				|
+| not sure			| Right-of-way at the next intersection      							|
+
+
+The model was able to correctly guess 2 of the 5 traffic signs, which gives an accuracy of 40%. Not sure if the train image is in the train set or what the final image actually is. It was difficult to get hold of images from the Internet and I am not aware of German signs that much.
+
+#### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability.
+
+| Probability         	|     Prediction top1				| 
+|:---------------------:|:---------------------------------------------:| 
+| .99         			| Road work   									| 
+| .99     				| Stop sign 										|
+| .998					| keep right											|
+| .99	      			| slippery road					 				|
+| 1.0				    | Right-of-way at the next intersection      							|
+
+By looking at the softmax probablities the model is always confident even if the prediction is wrong or might be wrong. Thus, it needs more finetuning to handle natural occuring images. Probably data augmentaion techniques would help and also maybe some of the images that I am using are not correct or representative of the training set images. **Because of time consumption in finding correct images on the Internet and knowing about German traffic signs I am not wasting more time on it as I have understood the concept overall.**
