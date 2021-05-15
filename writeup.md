@@ -35,3 +35,10 @@ signs data set:
 * The size of test set is 12630 images
 * The shape of a traffic sign image is (32, 32, 3)
 * The number of unique classes/labels in the data set is 43
+
+#### 2. Include an exploratory visualization of the dataset.
+
+Here is an exploratory visualization of the data set. It is a bar chart showing how the training, validation and test images with different labels are distributed.
+
+training images distribution is :
+![train_distribution][./examples/train_distribution.png]
